@@ -1,4 +1,4 @@
-
+const SECRET_API_KEY = 'BcHQjyNWDJMWA9KbF9rjEXpLbZFMr42UD7OrTEzU';
 const NASA_API_URL = 'https://api.nasa.gov/planetary/apod';
 
 class NASAImage {
@@ -22,6 +22,7 @@ class App {
         this.maxLocalStorageSize = 5 * 1024 * 1024; // Maximum allowed size (5MB)
 
         this.searchResults = document.getElementById('searchResults');
+        this.arrayImages = document.getElementById('arrayImagesResults');
         document.getElementById('specificDateForm').addEventListener('submit', this._fetchSpecificDate.bind(this));
         document.getElementById('dateRangeForm').addEventListener('submit', this._fetchDateRange.bind(this));
         document.getElementById('countForm').addEventListener('submit', this._fetchRandomImages.bind(this));
@@ -59,7 +60,7 @@ class App {
             this._renderAPOD(this.localStorageKey);
         } else {
             const apiUrl = `${NASA_API_URL}?api_key=${SECRET_API_KEY}`;
-            generalFetch(apiUrl);
+            this.generalFetch(apiUrl);
         }
     }
 
@@ -86,7 +87,7 @@ class App {
             data.date,
             data.explanation,
             data.hdurl,
-            data.mediaType,
+            data.media_type,
             data.title,
             data.url,
         );
@@ -175,6 +176,7 @@ class App {
         console.log('saved data: ', savedData);
 
         this.searchResults.innerHTML = '';
+        this.arrayImages.innerHTML = '';
         if (savedData) {
             const parsedData = JSON.parse(savedData);
 
@@ -219,7 +221,7 @@ class App {
     _renderImages(imageDataArray) {
         const arrayImages = document.getElementById('arrayImagesResults');
 
-        arrayImages.innerHTML = '';
+        this.arrayImages.innerHTML = '';
         this.searchResults.innerHTML = '';
 
         imageDataArray.forEach(imageData => {
