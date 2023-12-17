@@ -7,10 +7,40 @@
 </head>
 <body>
     <h1>Astronomy picture of the day</h1>
-    <label for="date">Select Date:</label>
-    <input type="date" id="date" name="date">
-    <button id="fetch-specific-date">Fetch APOD</button>
-    <div id="apod-container"></div>
+    <form id="specificDateForm">
+    <label for="specificDate">Select Date:</label>
+    <input type="date" id="specificDate" name="specificDate">
+    <button type="submit">Search by date</button>
+</form>
+   
+
+      <!-- Date Range Form -->
+  <form id="dateRangeForm">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate">
+    <button type="submit">Search</button>
+  </form>
+
+    <!-- Count Form -->
+    <form id="countForm">
+        <label for="count">Count:</label>
+        <input type="number" id="count" name="count" min="1" max="10">
+        <button type="submit">Search</button>
+      </form>
+
+        <!-- Search by Title Form -->
+  <form id="searchByTitleForm">
+    <label for="searchWord">Search by Title:</label>
+    <input type="text" id="searchWord" name="searchWord">
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="searchResults"></div>
+  <div id="arrayImagesResults"></div>
+
     <script src="apod.js"></script>
     
 </body>
