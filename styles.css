@@ -1,0 +1,417 @@
+/*color palette variables*/
+:root {
+  --dark-blue: rgba(2, 0, 27, 0.6);
+  --yellow: rgb(255, 201, 12);
+  --orange: rgb(255, 154, 12);
+  /*--light-color: rgb(255, 235, 166);*/
+  --light-color: rgb(255, 237, 183);
+  --dark-blue-text: rgb(2.4, 0, 26.7);
+  font-size: 16px;
+
+}
+
+/* Reset default browser styles */
+body,
+h1,
+p,
+button,
+ul,
+li,
+nav,
+label,
+select,
+input {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oxanium', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--orange);
+  text-align: center;
+  font-family: 'Audiowide', sans-serif;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: var(--yellow);
+  font-family: 'Oxanium', sans-serif;
+  font-weight: 300;
+  margin: 0px 0px 5px 0px;
+
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  margin: 0pc 0px 5px 0px;
+  font-family: 'Oxanium', sans-serif;
+}
+
+
+p {
+  color: var(--light-color);
+  padding: 5px;
+  font-size: 1rem;
+}
+
+body {
+  color: var(--light-color);
+  z-index: 0;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 5px;
+  background: url(./images/stars2.png) repeat top center;
+  object-fit: cover;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+  font-size: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--light-color);
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+}
+
+nav ul li a:focus {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+}
+
+#specificDateForm {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  margin: 5px;
+  color: var(--yellow);
+}
+
+input[type="date"],
+input[type="number"],
+.sortButton {
+  padding: 6px;
+  margin: 5px;
+  background-color: var(--light-color);
+  color: var(--dark-blue-text);
+
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-style: solid;
+  border-color: var(--light-color);
+}
+
+button[type="submit"] {
+  padding: 6px;
+  margin: 5px;
+  background-color: var(--light-color);
+  color: var(--dark-blue-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+select {
+  background-color: var(--light-color);
+  color: var(--dark-blue-text);
+  margin: 5px 10px 5px 0px;
+  padding: 6px;
+  border-radius: 6px;
+  border-style: solid;
+  transition: background-color 0.3s ease;
+}
+
+input[type="date"]:focus,
+button[type="submit"]:focus,
+.sortButton:focus {
+  outline: none;
+
+}
+
+input[type="date"]:hover,
+input[type="number"]:hover,
+select:hover,
+.sortButton:hover {
+
+  border-color: var(--yellow);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--yellow);
+}
+
+input[type=number] {
+  position: relative;
+  width: 35px;
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+
+#filterDivs {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#filterDivs>div {
+
+  margin: 10px;
+  margin-left: 0px;
+}
+
+
+#filterDivs label,
+#filterDivs button,
+#filterDivs select {
+  align-self: center;
+}
+
+
+#arrayImagesResults,
+#filteredImages {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.imageResult {
+  background-color: var(--dark-blue);
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+#singleImage {
+  width: 70%;
+  margin: auto;
+}
+
+.imageContent {
+  max-height: 100%;
+  margin: auto;
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#arrayImagesResults {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#focusedImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.94);
+  z-index: 1000;
+  color: var(--light-color);
+  justify-content: center;
+  align-items: center;
+}
+
+.imageButton {
+  cursor: pointer;
+  border: none;
+}
+
+.focused-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 60px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  max-height: 90vh;
+}
+
+.focusedImageContainer1 {
+  max-width: 100%;
+}
+
+.focusedImageContainer2 {
+  padding-top: 80px;
+  max-width: 100%;
+}
+
+
+.focusedImageContainer1 img {
+  max-width: 100%;
+  margin: auto;
+}
+
+.closeButton {
+  color: var(--light-color);
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: var(--orange);
+}
+
+/* Adjust columns for smaller screens */
+@media screen and (max-width: 1200px) {
+  #arrayImagesResults {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+}
+
+@media screen and (max-width: 850px) {
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .focused-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin: 30px 20px 0px 20px;
+  }
+
+  #focusedImg {
+    max-width: 80%;
+    max-height: auto;
+    margin: auto;
+
+  }
+
+  .closeButton {
+    font-size: 2rem;
+    right: 10px;
+    top: 5px;
+  }
+
+  #singleImage {
+    width: 100%;
+    margin: auto;
+  }
+
+  #arrayImagesResults {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  .focusedImageContainer2 {
+    padding-top: 0px;
+    max-width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  nav ul li {
+    font-size: 0.7rem;
+  }
+
+  .closeButton {
+    font-size: 1.5rem;
+  }
+
+  #singleImage {
+    width: 100%;
+    margin: auto;
+  }
+
+  #arrayImagesResults {
+    grid-template-columns: minmax(50px, 1fr);
+  }
+
+  .focused-grid-container {
+    grid-template-columns: 1fr;
+
+  }
+
+  .focusedImageContainer2 {
+    padding-top: 0px;
+    max-width: 100%;
+  }
+
+  .endDate::before {
+    content: "\a";
+    white-space: pre;
+  }
+}

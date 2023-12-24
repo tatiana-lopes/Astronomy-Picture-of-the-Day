@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astronomy Picture of the Day</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronomy Picture of the Day</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500&family=Oxanium:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Astronomy picture of the day</h1>
-    <form id="specificDateForm">
-    <label for="specificDate">Select Date:</label>
-    <input type="date" id="specificDate" name="specificDate">
-    <button type="submit">Search by date</button>
-</form>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">ASTRONOMY PICTURE OF THE DAY</a></li>
+        <li><a href="randomImages.html">RANDOM IMAGES</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Astronomy picture of the day</h1>
+  <form id="specificDateForm">
+    <label for="specificDate">Date:</label>
+    <input type="date" id="specificDate" name="specificDate" min="1995-06-16">
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="filterDivs" style="display: none;">
+    <div>
+      <label for="sorting">Sort by:</label>
+      <select id="sorting">
+        <option value="dateAsc">Date (Ascending)</option>
+        <option value="dateDesc">Date (Descending)</option>
+        <option value="titleAsc">Title (A to Z)</option>
+        <option value="titleDesc">Title (Z to A)</option>
+      </select>
+    </div>
+    <div>
+      <label for="mediaTypeFilter">Filter by media type:</label>
+      <select id="mediaTypeFilter">
+        <option value="all">All</option>
+        <option value="image">Image</option>
+        <option value="video">Video</option>
+      </select>
+    </div>
+
+  </div>
+  <div id="singleImage">
+  <div class="imageResult">
+    <h2 id="imageTitle"></h2>
+    <h3 id="imageDate">Date</h3>
+    <div id="imageOrVideo">
+      <!-- Placeholder for image or video -->
    
-
-      <!-- Date Range Form -->
-  <form id="dateRangeForm">
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate" name="startDate">
-
-    <label for="endDate">End Date:</label>
-    <input type="date" id="endDate" name="endDate">
-    <button type="submit">Search</button>
-  </form>
-
-    <!-- Count Form -->
-    <form id="countForm">
-        <label for="count">Count:</label>
-        <input type="number" id="count" name="count" min="1" max="10">
-        <button type="submit">Search</button>
-      </form>
-
-        <!-- Search by Title Form -->
-  <form id="searchByTitleForm">
-    <label for="searchWord">Search by Title:</label>
-    <input type="text" id="searchWord" name="searchWord">
-    <button type="submit">Search</button>
-  </form>
-
-  <div id="searchResults"></div>
+      <!-- Or placeholder for video -->
+      <!-- <iframe src="placeholder.mp4" frameborder="0" class="videoDisplay" allowfullscreen></iframe> -->
+    </div>
+    <p id="imageCopyright"></p>
+    <p id="imageExplanation"></p>
+  </div>
+</div>
   <div id="arrayImagesResults"></div>
+  <div id="filteredImages"></div>
+  <script src="common.js"></script>
 
-    <script src="apod.js"></script>
-    
 </body>
+
 </html>

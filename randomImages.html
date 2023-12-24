@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Images</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500&family=Oxanium:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">ASTRONOMY PICTURE OF THE DAY</a></li>
+        <li><a href="randomImages.html">RANDOM IMAGES</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+      </ul>
+    </nav>
+  </header>
+    <h1>Surprise me with random images</h1>
+  
+    <!-- Count Form -->
+    <form id="countForm">
+        <label for="count">Surprise images:</label>
+        <input type="number" id="count" name="count" min="2" max="14">
+        <button type="submit" >Search</button>
+      </form>
+
+  <div id="filterDivs" style="display: none;">
+  <div>
+    <label for="sorting">Sort by:</label>
+    <select id="sorting">
+      <option value="dateAsc">Date (Ascending)</option>
+      <option value="dateDesc">Date (Descending)</option>
+      <option value="titleAsc">Title (A to Z)</option>
+      <option value="titleDesc">Title (Z to A)</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="mediaTypeFilter">Filter:</label>
+    <select id="mediaTypeFilter">
+      <option value="all">All</option>
+      <option value="image">Image</option>
+      <option value="video">Video</option>
+    </select>
+  </div>
+
+</div>
+<div id="searchResults"></div>
+<div id="arrayImagesResults"></div>
+<div id="filteredImages"></div>
+
+<div id="focusedImage" class="hidden">
+  <div class="focused-grid-container">
+    <span class="closeButton">&times;</span>
+    <div class="focusedImageContainer1">
+      <h2 id="focusedImageTitle"></h2>
+      <h3 id="focusedImageDate"></h3>
+      <img id="focusedImg" src="" alt="Focused Image">
+    </div>
+    <div class="focusedImageContainer2">
+      <p id="focusedImageCopyright"></p>
+      <p id="focusedExplanation"></p>
+    </div>
+  </div>
+</div>
+
+
+    <script src="common.js"></script>
+    
+</body>
+</html>
