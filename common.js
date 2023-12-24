@@ -278,7 +278,6 @@ class App {
         const savedData = localStorage.getItem(localStorageKey);
         console.log('saved data: ', savedData);
         const filterDivs = document.getElementById('filterDivs');
-
         let imageTitle = document.getElementById('imageTitle');
         let imageDate = document.getElementById('imageDate');
         let imageOrVideo = document.getElementById('imageOrVideo');
@@ -360,9 +359,6 @@ class App {
                 imageButton.classList.add('imageButton');
                 imageContent.appendChild(imageButton);
                 const imageElement = document.createElement('img');
-
-                //stretch the image to the width of the image div
-                //set the width and height from the image
                 imageElement.width = 300;
                 imageElement.height = 300;
                 imageElement.style.width = '100%';
