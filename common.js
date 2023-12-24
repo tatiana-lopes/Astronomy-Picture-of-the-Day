@@ -364,10 +364,19 @@ class App {
                 imageElement.style.width = '100%';
                 imageElement.style.height = '100%';
                 imageElement.src = imageData.url;
-                imageElement.alt = imageData.title; imageButton.appendChild(imageElement);
+                imageElement.alt = imageData.title; 
+                imageButton.appendChild(imageElement);
 
 
             } else if (imageData.media_type === 'video') {
+                //create a button in the imageResult div which is the video
+                let videoButton = document.createElement('button');
+                videoButton.classList.add('videoButton');
+                videoButton.style.width = '100%';
+                videoButton.style.height = '100%';
+                videoButton.style.display = 'none';
+                imageDiv.appendChild(videoButton);
+              
                 const videoElement = document.createElement('iframe');
                 videoElement.src = imageData.url;
                 //set the width to the available space of the div and the height to 75% of the width
@@ -384,9 +393,31 @@ class App {
 
             // Show the filter divs
             filterDivs.style.display = 'flex';
+            imageDiv.addEventListener('click', () => {
+                focusedImage.classList.remove('hidden');
+                if(imageData.media_type === 'image'){
+                focusedImg.src = imageData.hdurl;
+                } else if (imageData.media_type === 'video'){
+                    focusedImg.src = imageData.url;
+                }
+                focusedImg.alt = imageData.title;
+                focusedImageTitle.textContent = imageData.title;
+                focusedImageDate.textContent = imageData.date;
+                if (imageData.media_type === 'image') {
+                    focusedExplanation.innerHTML = "<b>Explanation:</b> " + imageData.explanation;
+                } else if (imageData.media_type === 'video') {
+                    focusedExplanation.innerHTML = "<b>Explanation:</b> " + imageData.explanation;
+                }
+                focusedExplanation.classList.remove('hidden');
+            });
+
             imageContent.addEventListener('click', () => {
                 focusedImage.classList.remove('hidden');
+                if(imageData.media_type === 'image'){
                 focusedImg.src = imageData.hdurl;
+                } else if (imageData.media_type === 'video'){
+                    focusedImg.src = imageData.url;
+                }
                 focusedImg.alt = imageData.title;
                 focusedImageTitle.textContent = imageData.title;
                 focusedImageDate.textContent = imageData.date;
