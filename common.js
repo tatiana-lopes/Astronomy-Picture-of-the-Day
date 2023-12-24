@@ -263,6 +263,11 @@ class App {
     }
 
     _fetchRandomImages(event) {
+        //check if the input is between 2 and 14
+        if (document.getElementById('count').value < 2 || document.getElementById('count').value > 14) {
+            alert('Please enter a number between 2 and 14');
+            return;
+        }
         event.preventDefault();
         const count = document.getElementById('count').value;
         const apiUrl = `${NASA_API_URL}?api_key=${SECRET_API_KEY}&count=${count}`;
