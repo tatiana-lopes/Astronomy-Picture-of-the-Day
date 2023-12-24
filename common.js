@@ -246,7 +246,7 @@ class App {
         const dateInNewYork = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
         const endDate = new Date(dateInNewYork);
 
-        // Calculate the start date 31 days prior to today
+        // Calculate the start date 14 days prior to today
         const startDate = new Date(endDate);
         startDate.setDate(endDate.getDate() - 13); // Start date is 14 days before today
 
