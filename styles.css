@@ -52,7 +52,7 @@ h3 {
 
 
 p {
-  color: var(--light-color);
+  color: white;
   padding: 5px;
   font-size: 1rem;
 }
@@ -114,7 +114,7 @@ input[type="number"],
 .sortButton {
   padding: 6px;
   margin: 5px;
-  background-color: var(--light-color);
+  background-color: white;
   color: var(--dark-blue-text);
 
   border-radius: 6px;
@@ -127,7 +127,7 @@ input[type="number"],
 button[type="submit"] {
   padding: 6px;
   margin: 5px;
-  background-color: var(--light-color);
+  background-color: white;
   color: var(--dark-blue-text);
   border: none;
   border-radius: 6px;
@@ -136,7 +136,7 @@ button[type="submit"] {
 }
 
 select {
-  background-color: var(--light-color);
+  background-color: white;
   color: var(--dark-blue-text);
   margin: 5px 10px 5px 0px;
   padding: 6px;
@@ -157,11 +157,11 @@ input[type="number"]:hover,
 select:hover,
 .sortButton:hover {
 
-  border-color: var(--yellow);
+  border-color: var(--orange);
 }
 
 button[type="submit"]:hover {
-  background-color: var(--yellow);
+  background-color: var(--orange);
 }
 
 input[type=number] {
@@ -213,6 +213,8 @@ input[type=number]::-webkit-inner-spin-button {
   grid-template-rows: auto;
 }
 
+
+
 .imageResult {
   background-color: var(--dark-blue);
   margin: 0 auto;
@@ -236,6 +238,17 @@ img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+#imageOrVideo img {
+  /* Limit height but never let the image exceed its container width */
+  max-height: 60vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 #arrayImagesResults {

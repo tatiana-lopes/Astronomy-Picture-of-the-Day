@@ -1,4 +1,4 @@
-const SECRET_API_KEY = 'BcHQjyNWDJMWA9KbF9rjEXpLbZFMr42UD7OrTEzU';
+const SECRET_API_KEY =  'DEMO_KEY';
 const NASA_API_URL = 'https://api.nasa.gov/planetary/apod';
 
 class NASAImage {
